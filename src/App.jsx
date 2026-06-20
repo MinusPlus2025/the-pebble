@@ -28,21 +28,21 @@ const featureModes = [
     title: "呼吸一慢 空间就知道",
     titleLines: ["呼吸一慢", "空间就知道"],
     metric: "6.8 bpm",
-    metricLabel: "入睡呼吸节律",
+    metricLabel: "入睡前的呼吸",
     copy:
-      "The Pebble 安静地留意你的呼吸和翻身。你不用戴任何东西，也不用睡前打卡；它只判断你需要哪一种睡眠氛围。",
-    details: ["不用佩戴设备", "呼吸变慢会被留意到", "夜里翻身也不打扰"],
+      "The Pebble 会安静地留意你的呼吸和翻身。你不用戴手环，也不用睡前打卡；躺下以后，房间会慢慢进入适合睡觉的状态。",
+    details: ["不用戴任何东西", "呼吸慢下来会被留意到", "翻个身也不打扰"],
   },
   {
     id: "handoff",
-    label: "接管",
+    label: "接上",
     icon: Lightbulb,
-    title: "把睡前动作一次收起",
+    title: "把睡前动作慢慢收起",
     metric: "0 taps",
     metricLabel: "睡前手动操作",
     copy:
-      "当你慢慢要睡着时，灯光会往下暗，声景轻轻接上。关灯、找音乐、选声音这些事，就不用临睡前再想一遍。",
-    details: ["灯光慢慢退下", "睡前状态自然接上", "不用喊它"],
+      "当你快睡着时，灯光会慢慢暗下去，声景轻轻接上。关灯、找音乐、调音量这些事，就先放下吧。",
+    details: ["灯光慢慢退下", "声景轻轻接上", "不用开口唤醒"],
   },
   {
     id: "field",
@@ -53,8 +53,8 @@ const featureModes = [
     metric: "-23 dB",
     metricLabel: "半夜少被吵醒",
     copy:
-      "声音从底部很轻地出来，像远处的风或海面。睡深以后，它会把声景铺厚一点，让楼上脚步和路边车流不那么突然。",
-    details: ["睡深后轻轻加厚", "没有刺耳提示音", "突然的声音变远一点"],
+      "声音从底部轻轻出来，像远处的风或海面。夜深以后，它会把背景铺厚一点，让楼上脚步和路边车流没那么突然。",
+    details: ["夜深后轻轻加厚", "没有刺耳提示音", "突然的声音变远一点"],
   },
 ];
 
@@ -63,34 +63,34 @@ const scenes = [
     id: "day",
     label: "日常",
     icon: CircleDot,
-    title: "白天，它只是一枚安静的摆件",
-    subtitle: "放在床头，不催你看屏幕，也不提醒你还有什么要设置。",
+    title: "白天 它安静地待在床头",
+    subtitle: "像一件小摆件，不亮屏，也不催你设置什么。",
     roomLight: 82,
     halo: 18,
     mask: 8,
-    status: "安静摆着",
+    status: "安静待着",
   },
   {
     id: "sleep",
     label: "入睡",
     icon: Moon,
-    title: "呼吸变慢后，灯光跟着退场",
-    subtitle: "灯光慢慢暗下去，底部只留一点呼吸般的暖光和很轻的风声。",
+    title: "你快睡着时 灯光慢慢退下",
+    subtitle: "只留一点暖光和很轻的风声，房间也跟着安静下来。",
     roomLight: 32,
     halo: 54,
     mask: 32,
-    status: "准备入睡",
+    status: "准备睡了",
   },
   {
     id: "deep",
     label: "深睡",
     icon: Waves,
-    title: "夜越深，边界越厚",
-    subtitle: "夜里声景在低处铺开，把楼上脚步和窗外车流放远一点。",
+    title: "夜深以后 声音把边界铺厚",
+    subtitle: "楼上脚步和窗外车流被放远一点，不再一下子闯进梦里。",
     roomLight: 8,
     halo: 84,
     mask: 58,
-    status: "夜里守着",
+    status: "安静守着",
   },
 ];
 
@@ -116,9 +116,9 @@ const materials = [
 ];
 
 const specs = [
-  { label: "零开孔", value: "声音从底部轻轻出来" },
+  { label: "零开孔", value: "声音从底部出来" },
   { label: "零屏幕", value: "床头少一点亮光" },
-  { label: "零唤醒词", value: "用呼吸来开始" },
+  { label: "零唤醒词", value: "躺下就开始" },
 ];
 
 const companionPrompts = [
@@ -128,7 +128,7 @@ const companionPrompts = [
     icon: Volume2,
     draft: "楼上有脚步声和拖椅子声，入睡前很容易烦。",
     reply:
-      "好，今晚先把声音放低一点，像从床头柜下面慢慢铺开的风。等你睡沉些，我再把边界加厚，让楼上的脚步声听起来远一点、钝一点。",
+      "好，今晚先把声音放低一点，像从床头柜下面慢慢铺开的风。等你睡沉些，我再把边界加厚，让楼上的脚步声听起来远一点、没那么刺耳。",
     plan: "深谷微风",
     soundId: "breeze",
     shield: "Lv. 7",
@@ -143,7 +143,7 @@ const companionPrompts = [
     icon: Waves,
     draft: "窗外车流不断，偶尔有急刹和鸣笛。",
     reply:
-      "那今晚更适合一点海潮感。底声会厚一些，平时像远处的浪；遇到急刹或鸣笛时，我会短短托住一下，别让声音一下子把你拽醒。",
+      "那今晚更适合一点海潮感。底声会厚一些，平时像远处的浪；遇到急刹或鸣笛时，我会把那一下轻轻垫住，别让它把你拽醒。",
     plan: "潮汐之墙",
     soundId: "tidal",
     shield: "Lv. 8",
@@ -169,7 +169,7 @@ const companionPrompts = [
   },
   {
     id: "wabi",
-    label: "宅寂风卧室",
+    label: "侘寂风卧室",
     icon: BedDouble,
     draft: "卧室很安静，我只想要一点不打扰的夜间氛围。",
     reply:
@@ -384,7 +384,7 @@ function buildCompanionSolution(input) {
       label: "你的描述",
       draft: text,
       reply:
-        "听起来窗外今晚不太安静。那就用厚一点的海潮声，把车流放到更远的位置；如果突然有鸣笛或急刹，我会短短托住那一下，别让它把你惊醒。",
+        "听起来窗外今晚不太安静。那就用厚一点的海潮声，把车流放远一些；如果突然有鸣笛或急刹，我会把那一下轻轻垫住，别让它把你惊醒。",
       plan: "潮汐之墙",
       soundId: "tidal",
       shield: "Lv. 8",
@@ -451,7 +451,7 @@ function buildCompanionSolution(input) {
     label: "你的描述",
     draft: text,
     reply:
-      "我先给你一个稳妥的夜间设置：轻一点的风声，中等的安静边界，呼吸也会看得细一些。等你睡着后，如果外面突然吵起来，我再把声音稍微铺厚。",
+      "先按一个舒服的夜间状态来。风声轻一点，安静边界留在中间，呼吸我也看细一点。等你睡着后，外面真吵起来，我再把声音铺厚一点。",
     plan: "深谷微风",
     soundId: "breeze",
     shield: "Lv. 6",
@@ -626,18 +626,18 @@ function App() {
           <div className="why-points" aria-label="The Pebble value">
             <div>
               <span>01</span>
-              <strong>告别屏幕</strong>
-              <p>免去繁琐的手机设置，躺下即可，无需再多看一眼屏幕。</p>
+              <strong>少看屏幕</strong>
+              <p>躺下就好，关灯和声景会自己接上，不用再拿起手机调一遍。</p>
             </div>
             <div>
               <span>02</span>
               <strong>推远噪音</strong>
-              <p>无论楼上走动还是路边车流，都会被低频声景悄然抹平。</p>
+              <p>楼上走动、路边车流来了，底部声景会轻轻铺开，把它们放远一点。</p>
             </div>
             <div>
               <span>03</span>
-              <strong>零存在感</strong>
-              <p>依循你的呼吸自动运转。不设按键，不求管理，懂事且隐形。</p>
+              <strong>安静陪着</strong>
+              <p>它跟着你的呼吸工作。不亮屏、不催你管，需要时才轻轻回应。</p>
             </div>
           </div>
         </section>
@@ -666,7 +666,7 @@ function App() {
 
             <div className="material-column">
               <p className="body-lede">
-                The Pebble 把感知、声景和灯光联动藏在一件小摆件里。你不用学会使用它，只要把床头留给睡眠。
+                The Pebble 把感知、声景和灯光联动藏进一件小摆件里。你不需要学习怎么用，只要给床头留出一点位置。
               </p>
               <div className="spec-row">
                 {specs.map((item) => (
@@ -794,7 +794,7 @@ function App() {
             <p className="eyebrow">Scene / 放在床头的一晚</p>
             <h2>
               <span className="headline-line">白天是摆件</span>
-              <span className="headline-line">夜里替你守住睡眠</span>
+              <span className="headline-line">夜里替你守护睡眠</span>
             </h2>
           </div>
 
@@ -865,7 +865,7 @@ function App() {
               <div className="meter-grid">
                 <Meter label="房间亮度" value={activeScene.roomLight} />
                 <Meter label="底部光晕" value={activeScene.halo} />
-                <Meter label="听到的噪声" value={maskedNoise} />
+                <Meter label="剩下的噪声" value={maskedNoise} />
               </div>
             </div>
           </div>
@@ -907,7 +907,7 @@ function Hero({ audioEnabled, audioStatus, onToggleAudio }) {
         <p className="eyebrow">智能睡眠艺术摆件</p>
         <h1>The Pebble</h1>
         <p>
-          The Pebble 像一件温润的素陶摆件。它安静地留意你的呼吸，用柔和的声景把深夜的喧嚣隔在远处，给你留出一段干净、只属于自己的睡前时间。
+          The Pebble 像一件温润的素陶摆件。它不催你操作，只在你躺下后留意呼吸，用柔和的声景把窗外和楼上的声音放远一点。
         </p>
         <div className="hero-actions">
           <a className="primary-link" href="#why">
@@ -962,7 +962,7 @@ function CompanionSection({
       <div className="section-heading inverse">
         <p className="eyebrow">Pebble Chat / 智能睡眠伴侣</p>
         <h2>
-          <span className="headline-line">你说出今晚睡不好的原因</span>
+          <span className="headline-line">说说今晚哪里不舒服</span>
           <span className="headline-line">它帮你把房间调柔一点</span>
         </h2>
       </div>
@@ -987,11 +987,11 @@ function CompanionSection({
               <span className="companion-title-line">睡眠伴侣</span>
             </h3>
             <p>
-              告诉它今晚吵在哪里，或者心里是不是还绷着。它会给你一套很具体的安排：听哪种声景、声音铺多厚、灯多久慢下来。
+              你只要说今晚哪里不舒服。是楼上吵，还是心里紧，它会帮你选声景、调厚度，也把灯慢慢放下来。
             </p>
 
             <div className="quick-prompts">
-              <span>也可以先点一个常见情况</span>
+              <span>也可以先选一个今晚的情况</span>
               {companionPrompts.map((prompt) => {
                 const Icon = prompt.icon;
                 const selected = activePrompt.id === prompt.id;
@@ -1016,7 +1016,7 @@ function CompanionSection({
               <MessageCircle size={22} aria-hidden="true" />
             </div>
             <div className="chat-bubble user-bubble">
-              <span>你今晚遇到的事</span>
+              <span>你刚说的事</span>
               <p>{activePrompt.draft}</p>
             </div>
             <div className="chat-bubble pebble-bubble">
@@ -1033,7 +1033,7 @@ function CompanionSection({
                 <strong>{activePrompt.shield}</strong>
               </div>
               <div>
-                <span>呼吸照看</span>
+                <span>呼吸留意</span>
                 <strong>{activePrompt.sensitivity}</strong>
               </div>
               <div>
@@ -1068,11 +1068,11 @@ function CompanionSection({
 
             <div className="mode-summary">
               <div>
-                <small>适配度</small>
+                <small>适合度</small>
                 <strong>{companionScore}%</strong>
               </div>
               <p>
-                现在按「{activePrompt.label}」调到 {activeSound.label}，安静厚度 Lv. {shieldLevel}。
+                今晚先按「{activePrompt.label}」来，声景用 {activeSound.label}，安静厚度 Lv. {shieldLevel}。
               </p>
             </div>
 
@@ -1086,13 +1086,13 @@ function CompanionSection({
                 {audioEnabled
                   ? "暂停 The Pebble 声景"
                   : audioStatus === "blocked"
-                    ? "右下角可以手动播放"
+                    ? "点右下角播放"
                     : "听听现在的声景"}
               </span>
             </button>
 
             <div className="phone-control-group">
-              <span className="panel-kicker">Step 01 / 先选一种声音</span>
+              <span className="panel-kicker">Step 01 / 先选一种声景</span>
               <div className="sound-mode-list">
                 {soundModes.map((mode) => {
                   const Icon = mode.icon;
@@ -1156,12 +1156,12 @@ function CompanionSection({
             <div className="app-slider-group">
               <div className="slider-label">
                 <Radar size={18} aria-hidden="true" />
-                <span>呼吸照看细一点</span>
+                <span>呼吸留意细一点</span>
                 <strong>{breathSensitivity}%</strong>
               </div>
               <div className="slider-row">
                 <button
-                  aria-label="降低呼吸敏感度"
+                  aria-label="降低呼吸留意度"
                   onClick={() =>
                     setBreathSensitivity((value) => Math.max(35, value - 5))
                   }
@@ -1170,7 +1170,7 @@ function CompanionSection({
                   <Minus size={16} aria-hidden="true" />
                 </button>
                 <input
-                  aria-label="呼吸敏感度"
+                  aria-label="呼吸留意度"
                   max="95"
                   min="35"
                   onChange={(event) => setBreathSensitivity(Number(event.target.value))}
@@ -1178,7 +1178,7 @@ function CompanionSection({
                   value={breathSensitivity}
                 />
                 <button
-                  aria-label="提高呼吸敏感度"
+                  aria-label="提高呼吸留意度"
                   onClick={() =>
                     setBreathSensitivity((value) => Math.min(95, value + 5))
                   }
