@@ -46,15 +46,15 @@ const featureModes = [
   },
   {
     id: "field",
-    label: "声场",
+    label: "声音",
     icon: Shield,
-    title: "用低频把世界推远一点",
-    titleLines: ["用低频", "把世界推远一点"],
+    title: "把外面的声音放远一点",
+    titleLines: ["把外面的声音", "放远一点"],
     metric: "-23 dB",
     metricLabel: "半夜少被吵醒",
     copy:
-      "声音从底部轻轻出来，像远处的风或海面。夜深以后，它会把背景铺厚一点，让楼上脚步和路边车流没那么突然。",
-    details: ["夜深后轻轻加厚", "没有刺耳提示音", "突然的声音变远一点"],
+      "声音从底部轻轻出来，像远处的风或海面。夜深以后，它会跟着外面的动静稍微调稳一点，让楼上脚步和路边车流没那么突然。",
+    details: ["夜深后更稳一点", "没有刺耳提示音", "突然的声音没那么近"],
   },
 ];
 
@@ -85,8 +85,8 @@ const scenes = [
     id: "deep",
     label: "深睡",
     icon: Waves,
-    title: "夜深以后 声音把边界铺厚",
-    subtitle: "楼上脚步和窗外车流被放远一点，不再一下子闯进梦里。",
+    title: "夜深以后 房间更安静",
+    subtitle: "楼上脚步和窗外车流听起来远一些，不再一下子闯进梦里。",
     roomLight: 8,
     halo: 84,
     mask: 58,
@@ -128,7 +128,7 @@ const companionPrompts = [
     icon: Volume2,
     draft: "楼上有脚步声和拖椅子声，入睡前很容易烦。",
     reply:
-      "好，今晚先把声音放低一点，像从床头柜下面慢慢铺开的风。等你睡沉些，我再把边界加厚，让楼上的脚步声听起来远一点、没那么刺耳。",
+      "好，今晚先把声音放低一点，像从床头柜下面慢慢出来的风。等你睡沉些，我再让风声稳一点，让楼上的脚步声听起来远一点、没那么刺耳。",
     plan: "深谷微风",
     soundId: "breeze",
     shield: "Lv. 7",
@@ -143,7 +143,7 @@ const companionPrompts = [
     icon: Waves,
     draft: "窗外车流不断，偶尔有急刹和鸣笛。",
     reply:
-      "那今晚更适合一点海潮感。底声会厚一些，平时像远处的浪；遇到急刹或鸣笛时，我会把那一下轻轻垫住，别让它把你拽醒。",
+      "那今晚更适合一点海潮感。声音会低一些、稳一些，平时像远处的浪；遇到急刹或鸣笛时，我会把那一下压低一点，别让它把你拽醒。",
     plan: "潮汐之墙",
     soundId: "tidal",
     shield: "Lv. 8",
@@ -158,7 +158,7 @@ const companionPrompts = [
     icon: Brain,
     draft: "脑子停不下来，一闭眼就想白天没处理完的事。",
     reply:
-      "那今晚先不要把声音做得太厚。我们从很轻的雨声开始，让注意力有个地方落下。等呼吸稳下来，灯再慢慢暗下去。",
+      "那今晚声音先别太重。我们从很轻的雨声开始，让注意力有个地方落下。等呼吸稳下来，灯再慢慢暗下去。",
     plan: "幽林雨帘",
     soundId: "canopy",
     shield: "Lv. 5",
@@ -173,7 +173,7 @@ const companionPrompts = [
     icon: BedDouble,
     draft: "卧室很安静，我只想要一点不打扰的夜间氛围。",
     reply:
-      "那就只留一点点底声。你几乎不会注意到它，底部的光也只跟着呼吸轻轻亮一下。今晚让房间稳稳的就好。",
+      "那就只留一点很轻的背景声。你几乎不会注意到它，底部的光也只跟着呼吸轻轻亮一下。今晚让房间稳稳的就好。",
     plan: "低感守夜",
     soundId: "breeze",
     shield: "Lv. 3",
@@ -198,7 +198,7 @@ const soundModes = [
     label: "潮汐之墙",
     sublabel: "Tidal Shield",
     icon: Waves,
-    copy: "比微风厚一些，适合车流、鸣笛和窗外忽远忽近的声音。",
+    copy: "比微风更低、更稳，适合车流、鸣笛和窗外忽远忽近的声音。",
     hz: "74 Hz",
   },
   {
@@ -384,7 +384,7 @@ function buildCompanionSolution(input) {
       label: "你的描述",
       draft: text,
       reply:
-        "听起来窗外今晚不太安静。那就用厚一点的海潮声，把车流放远一些；如果突然有鸣笛或急刹，我会把那一下轻轻垫住，别让它把你惊醒。",
+        "听起来窗外今晚不太安静。那就用低一点的海潮声，把车流放远一些；如果突然有鸣笛或急刹，我会把那一下压低一点，别让它把你惊醒。",
       plan: "潮汐之墙",
       soundId: "tidal",
       shield: "Lv. 8",
@@ -401,7 +401,7 @@ function buildCompanionSolution(input) {
       label: "你的描述",
       draft: text,
       reply:
-        "楼上的动静最烦人，因为它总是从头顶落下来。今晚我会把风声放在更低的位置，先稳住房间；等你睡意上来，再把声音铺厚一点，让那些脚步和拖椅声没那么扎耳。",
+        "楼上的动静最烦人，因为它总是从头顶落下来。今晚我会先把风声放低一点，让房间稳下来；等你有睡意了，再把声音调得更稳，让那些脚步和拖椅声没那么扎耳。",
       plan: "深谷微风",
       soundId: "breeze",
       shield: "Lv. 7",
@@ -435,7 +435,7 @@ function buildCompanionSolution(input) {
       label: "你的描述",
       draft: text,
       reply:
-        "那就不多打扰你。今晚只留很轻的底声和一点点暖光，让房间更稳。如果半夜真的有声音闯进来，我再悄悄把边界加厚。",
+        "那就不多打扰你。今晚只留很轻的背景声和一点点暖光，让房间更稳。如果半夜真的有声音闯进来，我再悄悄把声音调稳一点。",
       plan: "低感守夜",
       soundId: "breeze",
       shield: "Lv. 3",
@@ -451,7 +451,7 @@ function buildCompanionSolution(input) {
     label: "你的描述",
     draft: text,
     reply:
-      "先按一个舒服的夜间状态来。风声轻一点，安静边界留在中间，呼吸我也看细一点。等你睡着后，外面真吵起来，我再把声音铺厚一点。",
+      "先按一个舒服的夜间状态来。风声轻一点，安静程度放在中间，呼吸我也看细一点。等你睡着后，外面真吵起来，我再把声音调稳一点。",
     plan: "深谷微风",
     soundId: "breeze",
     shield: "Lv. 6",
@@ -631,8 +631,8 @@ function App() {
             </div>
             <div>
               <span>02</span>
-              <strong>推远噪音</strong>
-              <p>楼上走动、路边车流来了，底部声景会轻轻铺开，把它们放远一点。</p>
+              <strong>声音远一点</strong>
+              <p>楼上走动、路边车流来了，底部声音会轻轻出来，把它们放远一点。</p>
             </div>
             <div>
               <span>03</span>
@@ -987,7 +987,7 @@ function CompanionSection({
               <span className="companion-title-line">睡眠伴侣</span>
             </h3>
             <p>
-              你只要说今晚哪里不舒服。是楼上吵，还是心里紧，它会帮你选声景、调厚度，也把灯慢慢放下来。
+              你只要说今晚哪里不舒服。是楼上吵，还是心里紧，它会帮你选声景、调声音，也把灯慢慢放下来。
             </p>
 
             <div className="quick-prompts">
@@ -1029,7 +1029,7 @@ function CompanionSection({
                 <strong>{activePrompt.plan}</strong>
               </div>
               <div>
-                <span>安静厚度</span>
+                <span>安静程度</span>
                 <strong>{activePrompt.shield}</strong>
               </div>
               <div>
@@ -1072,7 +1072,7 @@ function CompanionSection({
                 <strong>{companionScore}%</strong>
               </div>
               <p>
-                今晚先按「{activePrompt.label}」来，声景用 {activeSound.label}，安静厚度 Lv. {shieldLevel}。
+                今晚先按「{activePrompt.label}」来，声景用 {activeSound.label}，安静程度 Lv. {shieldLevel}。
               </p>
             </div>
 
@@ -1120,19 +1120,19 @@ function CompanionSection({
             <div className="app-slider-group">
               <div className="slider-label">
                 <SlidersHorizontal size={18} aria-hidden="true" />
-                <span>安静厚度</span>
+                <span>安静程度</span>
                 <strong>Lv. {shieldLevel}</strong>
               </div>
               <div className="slider-row">
                 <button
-                  aria-label="降低安静厚度"
+                  aria-label="降低安静程度"
                   onClick={() => setShieldLevel((level) => Math.max(1, level - 1))}
                   type="button"
                 >
                   <Minus size={16} aria-hidden="true" />
                 </button>
                 <input
-                  aria-label="安静厚度"
+                  aria-label="安静程度"
                   max="10"
                   min="1"
                   onChange={(event) => setShieldLevel(Number(event.target.value))}
@@ -1140,7 +1140,7 @@ function CompanionSection({
                   value={shieldLevel}
                 />
                 <button
-                  aria-label="提高安静厚度"
+                  aria-label="提高安静程度"
                   onClick={() => setShieldLevel((level) => Math.min(10, level + 1))}
                   type="button"
                 >
@@ -1148,8 +1148,8 @@ function CompanionSection({
                 </button>
               </div>
               <div className="scale-labels">
-                <span>薄</span>
-                <span>厚</span>
+                <span>轻一点</span>
+                <span>稳一点</span>
               </div>
             </div>
 
