@@ -725,6 +725,16 @@ section {
   line-height: 1.12;
 }
 
+.feature-title-line,
+.companion-title-line {
+  display: block;
+}
+
+.feature-title-line + .feature-title-line,
+.companion-title-line + .companion-title-line {
+  margin-top: 0.08em;
+}
+
 .feature-copy p {
   margin: 18px 0 0;
   color: rgba(255, 248, 238, 0.72);

@@ -25,7 +25,8 @@ const featureModes = [
     id: "sense",
     label: "感知",
     icon: Radar,
-    title: "呼吸一慢，空间就知道",
+    title: "呼吸一慢 空间就知道",
+    titleLines: ["呼吸一慢", "空间就知道"],
     metric: "6.8 bpm",
     metricLabel: "入睡呼吸节律",
     copy:
@@ -730,7 +731,13 @@ function App() {
             <div className="feature-copy">
               <span>{activeFeature.metricLabel}</span>
               <strong>{activeFeature.metric}</strong>
-              <h3>{activeFeature.title}</h3>
+              <h3>
+                {(activeFeature.titleLines ?? [activeFeature.title]).map((line) => (
+                  <span className="feature-title-line" key={line}>
+                    {line}
+                  </span>
+                ))}
+              </h3>
               <p>{activeFeature.copy}</p>
               <div className="detail-list">
                 {activeFeature.details.map((detail) => (
@@ -971,7 +978,10 @@ function CompanionSection({
               <Sparkles size={22} aria-hidden="true" />
             </div>
             <p className="panel-kicker">Night care / quietly tuned</p>
-            <h3>The Pebble 睡眠伴侣</h3>
+            <h3>
+              <span className="companion-title-line">The Pebble</span>
+              <span className="companion-title-line">睡眠伴侣</span>
+            </h3>
             <p>
               告诉它今晚吵在哪里，或者心里是不是还绷着。它会给你一套很具体的安排：听哪种声景、声音铺多厚、灯多久慢下来。
             </p>
