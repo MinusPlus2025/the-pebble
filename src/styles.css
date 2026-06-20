@@ -967,7 +967,7 @@ section {
 
 .chat-bubble {
   max-width: 92%;
-  padding: 20px 22px;
+  padding: 18px 20px;
   border: 1px solid rgba(255, 248, 238, 0.1);
   border-radius: 8px;
   background: rgba(20, 18, 18, 0.92);
@@ -989,18 +989,18 @@ section {
 .mode-summary small {
   display: block;
   color: rgba(255, 248, 238, 0.48);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 760;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .chat-bubble p {
-  margin: 9px 0 0;
+  margin: 8px 0 0;
   color: rgba(255, 248, 238, 0.82);
-  font-size: clamp(17px, 2vw, 22px);
-  font-weight: 650;
-  line-height: 1.6;
+  font-size: clamp(15px, 1.45vw, 18px);
+  font-weight: 560;
+  line-height: 1.72;
 }
 
 .ai-plan-grid {
@@ -1011,8 +1011,8 @@ section {
 }
 
 .ai-plan-grid div {
-  min-height: 104px;
-  padding: 16px;
+  min-height: 96px;
+  padding: 14px;
   border: 1px solid rgba(255, 248, 238, 0.1);
   border-radius: 8px;
   background: rgba(255, 248, 238, 0.055);
@@ -1020,10 +1020,11 @@ section {
 
 .ai-plan-grid strong {
   display: block;
-  margin-top: 12px;
+  margin-top: 11px;
   color: #f4c778;
-  font-size: clamp(18px, 2vw, 25px);
+  font-size: clamp(17px, 1.5vw, 22px);
   line-height: 1.22;
+  word-break: keep-all;
 }
 
 .chat-input {
@@ -1042,6 +1043,7 @@ section {
   border: 1px solid rgba(255, 248, 238, 0.1);
   border-radius: 8px;
   color: rgba(255, 248, 238, 0.86);
+  font-size: 15px;
   text-overflow: ellipsis;
   white-space: nowrap;
   background: rgba(0, 0, 0, 0.32);
@@ -1669,6 +1671,49 @@ section {
     border-bottom: 1px solid rgba(255, 248, 238, 0.1);
   }
 
+  .chat-panel {
+    gap: 16px;
+    padding: 22px;
+    background-size: 74px 74px;
+  }
+
+  .chat-orbit {
+    width: 52px;
+    height: 52px;
+  }
+
+  .chat-bubble {
+    max-width: 100%;
+    padding: 16px 18px;
+  }
+
+  .chat-bubble p {
+    font-size: 16px;
+    line-height: 1.66;
+  }
+
+  .ai-plan-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .ai-plan-grid div {
+    min-height: 88px;
+  }
+
+  .ai-plan-grid strong {
+    font-size: 20px;
+  }
+
+  .chat-input {
+    grid-template-columns: 1fr 52px;
+    padding-top: 16px;
+  }
+
+  .chat-input button {
+    height: 52px;
+  }
+
   .bedroom-stage {
     grid-template-areas:
       "controls"
@@ -1740,12 +1785,44 @@ section {
     min-height: auto;
   }
 
+  .chat-panel {
+    padding: 18px 16px;
+  }
+
   .chat-bubble {
     max-width: 100%;
+    padding: 15px 16px;
+  }
+
+  .chat-bubble p {
+    font-size: 15px;
+    line-height: 1.66;
   }
 
   .ai-plan-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ai-plan-grid div {
+    min-height: 84px;
+    padding: 13px;
+  }
+
+  .ai-plan-grid strong {
+    font-size: 18px;
+  }
+
+  .chat-input {
+    grid-template-columns: 1fr 50px;
+  }
+
+  .chat-input input {
+    padding: 14px 15px;
+    font-size: 14px;
+  }
+
+  .chat-input button {
+    height: 50px;
   }
 
   .sleep-visual {
