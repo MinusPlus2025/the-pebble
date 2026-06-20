@@ -593,6 +593,9 @@ function App() {
     [],
   );
 
+  const displayedFeature =
+    featureModes.find((mode) => mode.id === activeFeature.id) ?? activeFeature;
+
   return (
     <div className="site-shell">
       <audio
@@ -728,20 +731,20 @@ function App() {
             })}
           </div>
 
-          <div className={`function-stage feature-${activeFeature.id}`}>
+          <div className={`function-stage feature-${displayedFeature.id}`}>
             <div className="feature-copy">
-              <span>{activeFeature.metricLabel}</span>
-              <strong>{activeFeature.metric}</strong>
+              <span>{displayedFeature.metricLabel}</span>
+              <strong>{displayedFeature.metric}</strong>
               <h3>
-                {(activeFeature.titleLines ?? [activeFeature.title]).map((line) => (
+                {(displayedFeature.titleLines ?? [displayedFeature.title]).map((line) => (
                   <span className="feature-title-line" key={line}>
                     {line}
                   </span>
                 ))}
               </h3>
-              <p>{activeFeature.copy}</p>
+              <p>{displayedFeature.copy}</p>
               <div className="detail-list">
-                {activeFeature.details.map((detail) => (
+                {displayedFeature.details.map((detail) => (
                   <span key={detail}>{detail}</span>
                 ))}
               </div>
