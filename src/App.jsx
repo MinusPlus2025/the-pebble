@@ -49,6 +49,7 @@ const featureModes = [
     label: "声场",
     icon: Shield,
     title: "用低频把世界推远一点",
+    titleLines: ["用低频", "把世界推远一点"],
     metric: "-23 dB",
     metricLabel: "半夜少被吵醒",
     copy:
