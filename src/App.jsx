@@ -25,24 +25,24 @@ const featureModes = [
     id: "sense",
     label: "感知",
     icon: Radar,
-    title: "呼吸一慢 空间就知道",
-    titleLines: ["呼吸一慢", "空间就知道"],
+    title: "呼吸慢下来 它就知道你困了",
+    titleLines: ["呼吸慢下来", "它就知道你困了"],
     metric: "6.8 bpm",
     metricLabel: "入睡前的呼吸",
     copy:
-      "The Pebble 会安静地留意你的呼吸和翻身。你不用戴手环，也不用睡前打卡；躺下以后，房间会慢慢进入适合睡觉的状态。",
-    details: ["不用戴任何东西", "呼吸慢下来会被留意到", "翻个身也不打扰"],
+      "The Pebble 会安静地留意你的呼吸和翻身。你不用戴手环，也不用睡前打卡；躺下以后，它会帮房间慢慢安静下来。",
+    details: ["不用戴任何东西", "躺下后自动留意", "翻个身也不打扰"],
   },
   {
     id: "handoff",
     label: "接上",
     icon: Lightbulb,
-    title: "把睡前动作慢慢收起",
+    title: "睡前少做一点设置",
     metric: "0 taps",
     metricLabel: "睡前手动操作",
     copy:
-      "当你快睡着时，灯光会慢慢暗下去，声景轻轻接上。关灯、找音乐、调音量这些事，就先放下吧。",
-    details: ["灯光慢慢退下", "声景轻轻接上", "不用开口唤醒"],
+      "当你快睡着时，灯光会慢慢暗下去，声音轻轻接上。关灯、找音乐、调音量这些事，就先放下吧。",
+    details: ["灯光慢慢暗下去", "声音轻轻接上", "不用开口唤醒"],
   },
   {
     id: "field",
@@ -53,8 +53,8 @@ const featureModes = [
     metric: "-23 dB",
     metricLabel: "半夜少被吵醒",
     copy:
-      "声音从底部轻轻出来，像远处的风或海面。夜深以后，它会跟着外面的动静稍微调稳一点，让楼上脚步和路边车流没那么突然。",
-    details: ["夜深后更稳一点", "没有刺耳提示音", "突然的声音没那么近"],
+      "声音从底部轻轻出来，像远处的风或海面。夜深以后，它会根据外面的动静轻轻变化，让楼上脚步和路边车流没那么突然。",
+    details: ["夜深后更平稳", "没有刺耳提示音", "突然的声音没那么近"],
   },
 ];
 
@@ -64,7 +64,7 @@ const scenes = [
     label: "日常",
     icon: CircleDot,
     title: "白天 它安静地待在床头",
-    subtitle: "像一件小摆件，不亮屏，也不催你设置什么。",
+    subtitle: "像一件小摆件，不亮屏，也不用你提前设置。",
     roomLight: 82,
     halo: 18,
     mask: 8,
@@ -75,7 +75,7 @@ const scenes = [
     label: "入睡",
     icon: Moon,
     title: "你快睡着时 灯光慢慢退下",
-    subtitle: "只留一点暖光和很轻的风声，房间也跟着安静下来。",
+    subtitle: "只留一点暖光和很轻的声音，房间也跟着安静下来。",
     roomLight: 32,
     halo: 54,
     mask: 32,
@@ -86,11 +86,11 @@ const scenes = [
     label: "深睡",
     icon: Waves,
     title: "夜深以后 房间更安静",
-    subtitle: "楼上脚步和窗外车流听起来远一些，不再一下子闯进梦里。",
+    subtitle: "楼上脚步和窗外车流听起来远一些，不再一下子把你吵醒。",
     roomLight: 8,
     halo: 84,
     mask: 58,
-    status: "安静守着",
+    status: "安静陪着",
   },
 ];
 
@@ -98,7 +98,7 @@ const materials = [
   {
     name: "薰衣草灰白",
     value: "Lavender Grey-White",
-    note: "带一点灰紫的冷静白，适合浅色床品和安静的北欧卧室。",
+    note: "带一点灰紫的柔和白，适合浅色床品和安静的北欧卧室。",
     swatch: "lavender",
   },
   {
@@ -116,7 +116,7 @@ const materials = [
 ];
 
 const specs = [
-  { label: "零开孔", value: "声音从底部出来" },
+  { label: "零开孔", value: "声音和光从底部出来" },
   { label: "零屏幕", value: "床头少一点亮光" },
   { label: "零唤醒词", value: "躺下就开始" },
 ];
@@ -128,7 +128,7 @@ const companionPrompts = [
     icon: Volume2,
     draft: "楼上有脚步声和拖椅子声，入睡前很容易烦。",
     reply:
-      "好，今晚先把声音放低一点，像从床头柜下面慢慢出来的风。等你睡沉些，我再让风声稳一点，让楼上的脚步声听起来远一点、没那么刺耳。",
+      "好，今晚先用很轻的风声，像从床头柜下面慢慢出来。等你睡沉些，我会让声音更平稳，让楼上的脚步声听起来远一点。",
     plan: "深谷微风",
     soundId: "breeze",
     shield: "Lv. 7",
@@ -143,8 +143,8 @@ const companionPrompts = [
     icon: Waves,
     draft: "窗外车流不断，偶尔有急刹和鸣笛。",
     reply:
-      "那今晚更适合一点海潮感。声音会低一些、稳一些，平时像远处的浪；遇到急刹或鸣笛时，我会把那一下压低一点，别让它把你拽醒。",
-    plan: "潮汐之墙",
+      "那今晚更适合低一点的海潮声。平时像远处的浪，遇到急刹或鸣笛时，我会把那一下压低一点，尽量别让它把你吵醒。",
+    plan: "远海低潮",
     soundId: "tidal",
     shield: "Lv. 8",
     shieldLevel: 8,
@@ -158,8 +158,8 @@ const companionPrompts = [
     icon: Brain,
     draft: "脑子停不下来，一闭眼就想白天没处理完的事。",
     reply:
-      "那今晚声音先别太重。我们从很轻的雨声开始，让注意力有个地方落下。等呼吸稳下来，灯再慢慢暗下去。",
-    plan: "幽林雨帘",
+      "那今晚声音先轻一点。我们从细雨声开始，让注意力慢慢落下来。等呼吸稳了，灯再一点点暗下去。",
+    plan: "林间细雨",
     soundId: "canopy",
     shield: "Lv. 5",
     shieldLevel: 5,
@@ -171,10 +171,10 @@ const companionPrompts = [
     id: "wabi",
     label: "侘寂风卧室",
     icon: BedDouble,
-    draft: "卧室很安静，我只想要一点不打扰的夜间氛围。",
+    draft: "卧室很安静，我只想留一点不打扰的夜间感觉。",
     reply:
-      "那就只留一点很轻的背景声。你几乎不会注意到它，底部的光也只跟着呼吸轻轻亮一下。今晚让房间稳稳的就好。",
-    plan: "低感守夜",
+      "那就只留一点很轻的背景声。你几乎不会注意到它，底部的光也只跟着呼吸轻轻亮一下。今晚简单一点就好。",
+    plan: "轻声陪睡",
     soundId: "breeze",
     shield: "Lv. 3",
     shieldLevel: 3,
@@ -195,16 +195,16 @@ const soundModes = [
   },
   {
     id: "tidal",
-    label: "潮汐之墙",
-    sublabel: "Tidal Shield",
+    label: "远海低潮",
+    sublabel: "Low Tide",
     icon: Waves,
-    copy: "比微风更低、更稳，适合车流、鸣笛和窗外忽远忽近的声音。",
+    copy: "比微风更低、更稳，适合车流、鸣笛和忽远忽近的窗外声音。",
     hz: "74 Hz",
   },
   {
     id: "canopy",
-    label: "幽林雨帘",
-    sublabel: "Hidden Canopy",
+    label: "林间细雨",
+    sublabel: "Soft Rain",
     icon: Sunrise,
     copy: "细细的雨声，有一点自然颗粒感，适合心里还没放松的时候。",
     hz: "58 Hz",
@@ -384,8 +384,8 @@ function buildCompanionSolution(input) {
       label: "你的描述",
       draft: text,
       reply:
-        "听起来窗外今晚不太安静。那就用低一点的海潮声，把车流放远一些；如果突然有鸣笛或急刹，我会把那一下压低一点，别让它把你惊醒。",
-      plan: "潮汐之墙",
+        "听起来窗外今晚不太安静。那就用低一点的海潮声，把车流放远一些；如果突然有鸣笛或急刹，我会把那一下压低一点，尽量别让它把你吵醒。",
+      plan: "远海低潮",
       soundId: "tidal",
       shield: "Lv. 8",
       shieldLevel: 8,
@@ -401,7 +401,7 @@ function buildCompanionSolution(input) {
       label: "你的描述",
       draft: text,
       reply:
-        "楼上的动静最烦人，因为它总是从头顶落下来。今晚我会先把风声放低一点，让房间稳下来；等你有睡意了，再把声音调得更稳，让那些脚步和拖椅声没那么扎耳。",
+        "楼上的动静最烦人，因为它总是从头顶落下来。今晚我会先把风声放轻一点；等你有睡意了，再让声音更平稳，让那些脚步和拖椅声没那么刺耳。",
       plan: "深谷微风",
       soundId: "breeze",
       shield: "Lv. 7",
@@ -418,8 +418,8 @@ function buildCompanionSolution(input) {
       label: "你的描述",
       draft: text,
       reply:
-        "如果脑子还停不下来，声音就别太用力。今晚先用细一点的雨声，把注意力慢慢带回来；等呼吸平下来，灯再暗，声音也再稍微稳一点。",
-      plan: "幽林雨帘",
+        "如果脑子还停不下来，声音就别太重。今晚先用细一点的雨声，把注意力慢慢带回来；等呼吸平下来，灯再一点点暗下去。",
+      plan: "林间细雨",
       soundId: "canopy",
       shield: "Lv. 5",
       shieldLevel: 5,
@@ -435,8 +435,8 @@ function buildCompanionSolution(input) {
       label: "你的描述",
       draft: text,
       reply:
-        "那就不多打扰你。今晚只留很轻的背景声和一点点暖光，让房间更稳。如果半夜真的有声音闯进来，我再悄悄把声音调稳一点。",
-      plan: "低感守夜",
+        "那就不多打扰你。今晚只留很轻的背景声和一点点暖光。如果半夜真的有声音闯进来，我再悄悄把声音调低一些、稳一些。",
+      plan: "轻声陪睡",
       soundId: "breeze",
       shield: "Lv. 3",
       shieldLevel: 3,
@@ -451,7 +451,7 @@ function buildCompanionSolution(input) {
     label: "你的描述",
     draft: text,
     reply:
-      "先按一个舒服的夜间状态来。风声轻一点，安静程度放在中间，呼吸我也看细一点。等你睡着后，外面真吵起来，我再把声音调稳一点。",
+      "先按一个好入睡的状态来。风声轻一点，声音放在中间；我会更留意你的呼吸变化。等你睡着后，外面真吵起来，我再把声音调得稳一点。",
     plan: "深谷微风",
     soundId: "breeze",
     shield: "Lv. 6",
@@ -600,7 +600,7 @@ function App() {
     <div className="site-shell">
       <audio
         ref={audioElementRef}
-        aria-label="The Pebble 声景演示播放器"
+        aria-label="The Pebble 声音演示播放器"
         className="pebble-audio-player visible"
         controls
         loop
@@ -627,16 +627,16 @@ function App() {
             <div>
               <span>01</span>
               <strong>少看屏幕</strong>
-              <p>躺下就好，关灯和声景会自己接上，不用再拿起手机调一遍。</p>
+              <p>躺下就好，关灯和声音会自己接上，不用再拿起手机调一遍。</p>
             </div>
             <div>
               <span>02</span>
               <strong>声音远一点</strong>
-              <p>楼上走动、路边车流来了，底部声音会轻轻出来，把它们放远一点。</p>
+              <p>楼上走动、路边车流来了，底部会出来一点柔和的声音，把突兀的动静放远。</p>
             </div>
             <div>
               <span>03</span>
-              <strong>安静陪着</strong>
+              <strong>不用你管</strong>
               <p>它跟着你的呼吸工作。不亮屏、不催你管，需要时才轻轻回应。</p>
             </div>
           </div>
@@ -661,12 +661,12 @@ function App() {
               </div>
               <div className="annotation annotation-top">非对称有机曲面</div>
               <div className="annotation annotation-right">表面零按键零网孔</div>
-              <div className="annotation annotation-bottom">底部极窄悬浮声缝</div>
+              <div className="annotation annotation-bottom">声音和光从底部出来</div>
             </div>
 
             <div className="material-column">
               <p className="body-lede">
-                The Pebble 把感知、声景和灯光联动藏进一件小摆件里。你不需要学习怎么用，只要给床头留出一点位置。
+                The Pebble 把呼吸感知、声音和灯光放进一件小摆件里。你不用学习怎么用，只要给床头留一点位置。
               </p>
               <div className="spec-row">
                 {specs.map((item) => (
@@ -704,10 +704,10 @@ function App() {
 
         <section className="function-section" id="function">
           <div className="section-heading inverse">
-            <p className="eyebrow">Function / 睡意悄悄发生</p>
+            <p className="eyebrow">Function / 躺下后它会做什么</p>
             <h2>
-              <span className="headline-line">它在安静里读懂睡意</span>
-              <span className="headline-line">只给你一点点回应</span>
+              <span className="headline-line">它知道你快睡着了</span>
+              <span className="headline-line">只在需要时轻轻回应</span>
             </h2>
           </div>
 
@@ -865,7 +865,7 @@ function App() {
               <div className="meter-grid">
                 <Meter label="房间亮度" value={activeScene.roomLight} />
                 <Meter label="底部光晕" value={activeScene.halo} />
-                <Meter label="剩下的噪声" value={maskedNoise} />
+                <Meter label="听到的噪声" value={maskedNoise} />
               </div>
             </div>
           </div>
@@ -907,7 +907,7 @@ function Hero({ audioEnabled, audioStatus, onToggleAudio }) {
         <p className="eyebrow">智能睡眠艺术摆件</p>
         <h1>The Pebble</h1>
         <p>
-          The Pebble 像一件温润的素陶摆件。它不催你操作，只在你躺下后留意呼吸，用柔和的声景把窗外和楼上的声音放远一点。
+          The Pebble 像一件温润的素陶摆件。它不催你操作，只在你躺下后留意呼吸，用柔和的声音把窗外和楼上的动静放远一点。
         </p>
         <div className="hero-actions">
           <a className="primary-link" href="#why">
@@ -916,16 +916,16 @@ function Hero({ audioEnabled, audioStatus, onToggleAudio }) {
           </a>
           <a className="ghost-link" href="#function">
             <Wind size={18} aria-hidden="true" />
-            <span>听听声景</span>
+            <span>听听声音</span>
           </a>
           <button className="ghost-link hero-sound-button" onClick={onToggleAudio} type="button">
             <Volume2 size={18} aria-hidden="true" />
             <span>
               {audioEnabled
-                ? "暂停声景"
+                ? "暂停声音"
                 : audioStatus === "blocked"
                   ? "手动播放"
-                  : "试听声景"}
+                  : "试听声音"}
             </span>
           </button>
         </div>
@@ -933,7 +933,7 @@ function Hero({ audioEnabled, audioStatus, onToggleAudio }) {
 
       <div className="hero-meta" aria-label="product principles">
         <span>静默感知</span>
-        <span>柔和声景</span>
+        <span>柔和声音</span>
         <span>守护一夜好眠</span>
       </div>
     </header>
@@ -962,8 +962,8 @@ function CompanionSection({
       <div className="section-heading inverse">
         <p className="eyebrow">Pebble Chat / 智能睡眠伴侣</p>
         <h2>
-          <span className="headline-line">说说今晚哪里不舒服</span>
-          <span className="headline-line">它帮你把房间调柔一点</span>
+          <span className="headline-line">说说今晚睡不着的原因</span>
+          <span className="headline-line">它帮你调好灯光和声音</span>
         </h2>
       </div>
 
@@ -981,13 +981,13 @@ function CompanionSection({
             <div className="companion-badge">
               <Sparkles size={22} aria-hidden="true" />
             </div>
-            <p className="panel-kicker">Night care / quietly tuned</p>
+            <p className="panel-kicker">Night care / 睡前好好安排</p>
             <h3>
               <span className="companion-title-line">The Pebble</span>
               <span className="companion-title-line">睡眠伴侣</span>
             </h3>
             <p>
-              你只要说今晚哪里不舒服。是楼上吵，还是心里紧，它会帮你选声景、调声音，也把灯慢慢放下来。
+              你可以直接说：楼上太吵，或者脑子停不下来。The Pebble 会按你的情况选声音、调音量，也把灯慢慢暗下来。
             </p>
 
             <div className="quick-prompts">
@@ -1025,7 +1025,7 @@ function CompanionSection({
             </div>
             <div className="ai-plan-grid">
               <div>
-                <span>今晚声景</span>
+                <span>今晚声音</span>
                 <strong>{activePrompt.plan}</strong>
               </div>
               <div>
@@ -1033,11 +1033,11 @@ function CompanionSection({
                 <strong>{activePrompt.shield}</strong>
               </div>
               <div>
-                <span>呼吸留意</span>
+                <span>呼吸变化</span>
                 <strong>{activePrompt.sensitivity}</strong>
               </div>
               <div>
-                <span>灯光退场</span>
+                <span>灯慢下来</span>
                 <strong>{activePrompt.light}</strong>
               </div>
             </div>
@@ -1045,7 +1045,7 @@ function CompanionSection({
               <input
                 aria-label="输入睡眠环境描述"
                 onChange={(event) => setCompanionInput(event.target.value)}
-                placeholder="比如：楼上走来走去，我有点烦，想快点睡..."
+                placeholder="比如：楼上走来走去，我有点烦，想快点睡"
                 type="text"
                 value={companionInput}
               />
@@ -1072,7 +1072,7 @@ function CompanionSection({
                 <strong>{companionScore}%</strong>
               </div>
               <p>
-                今晚先按「{activePrompt.label}」来，声景用 {activeSound.label}，安静程度 Lv. {shieldLevel}。
+                今晚先按「{activePrompt.label}」来，声音用 {activeSound.label}，安静程度 Lv. {shieldLevel}。
               </p>
             </div>
 
@@ -1084,15 +1084,15 @@ function CompanionSection({
               <Volume2 size={19} aria-hidden="true" />
               <span>
                 {audioEnabled
-                  ? "暂停 The Pebble 声景"
+                  ? "暂停 The Pebble 声音"
                   : audioStatus === "blocked"
                     ? "点右下角播放"
-                    : "听听现在的声景"}
+                    : "听听现在的声音"}
               </span>
             </button>
 
             <div className="phone-control-group">
-              <span className="panel-kicker">Step 01 / 先选一种声景</span>
+              <span className="panel-kicker">Step 01 / 先选一种声音</span>
               <div className="sound-mode-list">
                 {soundModes.map((mode) => {
                   const Icon = mode.icon;
@@ -1156,7 +1156,7 @@ function CompanionSection({
             <div className="app-slider-group">
               <div className="slider-label">
                 <Radar size={18} aria-hidden="true" />
-                <span>呼吸留意细一点</span>
+                <span>更留意呼吸变化</span>
                 <strong>{breathSensitivity}%</strong>
               </div>
               <div className="slider-row">
@@ -1188,8 +1188,8 @@ function CompanionSection({
                 </button>
               </div>
               <div className="scale-labels">
-                <span>稳一点</span>
-                <span>灵一点</span>
+                <span>少一点</span>
+                <span>多一点</span>
               </div>
             </div>
 
